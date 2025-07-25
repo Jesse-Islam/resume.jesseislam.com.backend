@@ -23,7 +23,7 @@ steps:
     args:
       - '-c'
       - |
-        gcloud run deploy python-service-649439655037 \
+        gcloud run deploy python-service \
           --image gcr.io/$PROJECT_ID/resume-backend:$SHORT_SHA \
           --region us-central1 \
           --platform managed \
