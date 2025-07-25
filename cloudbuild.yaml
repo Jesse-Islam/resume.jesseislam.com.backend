@@ -1,15 +1,16 @@
 # cloudbuild.yaml
-
 options:
-  # if you pin a custom serviceAccount later, keep this
   logging: CLOUD_LOGGING_ONLY
 
 steps:
-  # ──────────────────────────────────────────────────
-  # 1) Run pytest
+  # ───────────────────────────────
+  # 1) Run pytest (with PYTHONPATH)
   - id: run-tests
     name: python:3.10-slim
     entrypoint: bash
+    # make sure Python can find main.py
+    env:
+      - "PYTHONPATH=/workspace"
     args:
       - -c
       - |
@@ -18,7 +19,7 @@ steps:
         pip install -r requirements.txt
         pytest --maxfail=1 --disable-warnings -q
 
-  # ──────────────────────────────────────────────────
+  # ───────────────────────────────
   # 2) Build Docker image
   - id: docker-build
     name: gcr.io/cloud-builders/docker
@@ -28,7 +29,7 @@ steps:
       - gcr.io/$PROJECT_ID/resume-backend:$SHORT_SHA
       - .
 
-  # ──────────────────────────────────────────────────
+  # ───────────────────────────────
   # 3) Push to Container Registry
   - id: docker-push
     name: gcr.io/cloud-builders/docker
@@ -36,8 +37,8 @@ steps:
       - push
       - gcr.io/$PROJECT_ID/resume-backend:$SHORT_SHA
 
-  # ──────────────────────────────────────────────────
-  # 4) Deploy to Cloud Run
+  # ───────────────────────────────
+  # 4) Deploy to Cloud Run
   - id: run-deploy
     name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
     entrypoint: bash
@@ -52,6 +53,5 @@ steps:
           --project=double-genius-466920-b8 \
           --allow-unauthenticated
 
-# Tell Cloud Build which images you produce
 images:
   - gcr.io/$PROJECT_ID/resume-backend:$SHORT_SHA
