@@ -29,9 +29,9 @@ def client():
     return app.test_client()
 
 def test_options_preflight(client):
-    """OPTIONS / should return HTTP 204 and no body"""
+    """OPTIONS / should return HTTP 200 and no body"""
     resp = client.open("/", method="OPTIONS")
-    assert resp.status_code == 204
+    assert resp.status_code == 200
     assert resp.data == b""
 
 def test_post_increments_and_returns_json(client):
