@@ -147,13 +147,24 @@ Response:
 
 ---
 
-## 📫 Contact
+## Contact
 
 Jesse Islam · [resume.jesseislam.com](https://resume.jesseislam.com) · [jesse@jesseislam.com](mailto:jesse@jesseislam.com)
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+
+## Purpose
+
+- https://github.com/Jesse-Islam/resume.jesseislam.terraform
+- https://github.com/Jesse-Islam/resume.jesseislam.com.backend
+- https://github.com/Jesse-Islam/resume.jesseislam.com.frontend
+
+These three repositories automatically update the different components that go into https://resume.jesseislam.com
+
+
 
