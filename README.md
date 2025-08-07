@@ -3,9 +3,11 @@
 
 A simple Flask‑based backend for [resume.jesseislam.com](https://resume.jesseislam.com). It exposes a single POST `/` endpoint that increments and returns a page‑view counter stored in Firestore.
 
+<img width="3840" height="1716" alt="Image" src="https://github.com/user-attachments/assets/8677f884-1e78-476f-ad30-61b3c000fe63" />
+
 ---
 
-## 🚀 Features
+## Features
 
 - **Flask** app with CORS support  
 - **Firestore** integration via Firebase Admin SDK  
@@ -15,7 +17,7 @@ A simple Flask‑based backend for [resume.jesseislam.com](https://resume.jessei
 
 ---
 
-## 📂 Repository Layout
+## Repository Layout
 
 ```
 
@@ -31,7 +33,7 @@ A simple Flask‑based backend for [resume.jesseislam.com](https://resume.jessei
 
 ---
 
-## 🛠 Prerequisites
+## Prerequisites
 
 - **Python 3.8+**  
 - [Google Cloud SDK](https://cloud.google.com/sdk)  
@@ -47,7 +49,7 @@ A simple Flask‑based backend for [resume.jesseislam.com](https://resume.jessei
 
 ---
 
-## 🔧 Local Development (still in testing)
+## Local Development (still in testing)
 
 1. **Clone repository**  
    ```bash
@@ -89,7 +91,7 @@ A simple Flask‑based backend for [resume.jesseislam.com](https://resume.jessei
 
 ---
 
-## ✅ Testing
+## Testing
 
 Unit tests are written with **pytest** in the `tests/` directory.
 
@@ -100,7 +102,7 @@ pytest --maxfail=1 --disable-warnings -q
 
 ---
 
-## 🐳 Docker
+## Docker
 
 Build and run the container locally:
 
@@ -113,7 +115,7 @@ docker run -p 8080:8080 \
 
 ---
 
-## 🚄 CI/CD with Cloud Build
+## CI/CD with Cloud Build
 
 The included `cloudbuild.yaml`:
 
@@ -129,7 +131,7 @@ To enable:
 
 ---
 
-## 📈 Usage
+## Usage
 
 Once deployed behind API Gateway, your endpoint is:
 
